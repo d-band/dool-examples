@@ -1,0 +1,8 @@
+{
+  "files": [
+    "./app.js"
+  ],
+  "dependencies": {
+    "espresso.js": "0.0.1"
+  }
+}

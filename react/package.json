@@ -1,0 +1,12 @@
+{
+  "files": [
+    "./index.js"
+  ],
+  "dependencies": {
+    "react-router": "0.13.1",
+    "react": "0.13.1"
+  },
+  "externals": {
+    "react": "React"
+  }
+}

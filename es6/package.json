@@ -1,0 +1,9 @@
+{
+  "files": [
+    "./es5-shim-sham.js",
+    "./index.js"
+  ],
+  "dependencies": {
+    "es5-shim": "~4.0.5"
+  }
+}

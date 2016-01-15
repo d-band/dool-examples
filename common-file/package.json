@@ -1,0 +1,8 @@
+{
+  "files": [
+    "./page-*.js"
+  ],
+  "dependencies": {
+    "jquery": "1.11.2"
+  }
+}
