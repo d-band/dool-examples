@@ -1,0 +1,18 @@
+{
+  "name": "redux-shopping-cart",
+  "version": "0.0.1",
+  "description": "Redux shopping cart example",
+  "files": ["./index.js"],
+  "scripts": {
+    "build": "dool build",
+    "start": "dool server"
+  },
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.5",
+    "redux-logger": "^2.3.2",
+    "redux-thunk": "^1.0.3"
+  }
+}
