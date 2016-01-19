@@ -1,46 +1,49 @@
-require('./index.css');
+import React from 'react'
+import { render } from 'react-dom'
+import { browserHistory, Router, Route, Link } from 'react-router'
+import './index.css'
 
-var React = require('react');
-var Router = require('react-router');
-var { Route, RouteHandler, Link } = Router;
+const App = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
-var App = React.createClass({
-
-  mixins: [ Router.Navigation ],
-
-  getInitialState: function () {
+  getInitialState() {
     return {
       tacos: [
         { name: 'duck confit' },
         { name: 'carne asada' },
         { name: 'shrimp' }
       ]
-    };
+    }
   },
 
-  addTaco: function () {
-    var name = prompt('taco name?');
+  addTaco() {
+    let name = prompt('taco name?')
+
     this.setState({
-      tacos: this.state.tacos.concat({name: name})
-    });
+      tacos: this.state.tacos.concat({ name })
+    })
   },
 
-  handleRemoveTaco: function (removedTaco) {
-    var tacos = this.state.tacos.filter(function (taco) {
-      return taco.name != removedTaco;
-    });
-    this.setState({tacos: tacos});
-    this.transitionTo('/');
+  handleRemoveTaco(removedTaco) {
+    this.setState({
+      tacos: this.state.tacos.filter(function (taco) {
+        return taco.name != removedTaco
+      })
+    })
+
+    this.context.router.push('/')
   },
 
-  render: function () {
-    var links = this.state.tacos.map(function (taco, i) {
+  render() {
+    let links = this.state.tacos.map(function (taco, i) {
       return (
         <li key={i}>
-          <Link to="taco" params={taco}>{taco.name}</Link>
+          <Link to={`/taco/${taco.name}`}>{taco.name}</Link>
         </li>
-      );
-    });
+      )
+    })
     return (
       <div className="App">
         <button onClick={this.addTaco}>Add Taco</button>
@@ -48,36 +51,34 @@ var App = React.createClass({
           {links}
         </ul>
         <div className="Detail">
-          <RouteHandler onRemoveTaco={this.handleRemoveTaco}/>
+          {this.props.children && React.cloneElement(this.props.children, {
+            onRemoveTaco: this.handleRemoveTaco
+          })}
         </div>
       </div>
-    );
+    )
   }
-});
+})
 
-var Taco = React.createClass({
-  mixins: [ Router.State ],
-
-  remove: function () {
-    this.props.onRemoveTaco(this.getParams().name);
+const Taco = React.createClass({
+  remove() {
+    this.props.onRemoveTaco(this.props.params.name)
   },
 
-  render: function () {
+  render() {
     return (
       <div className="Taco">
-        <h1>{this.getParams().name}</h1>
+        <h1>{this.props.params.name}</h1>
         <button onClick={this.remove}>remove</button>
       </div>
-    );
+    )
   }
-});
+})
 
-var routes = (
-  <Route handler={App}>
-    <Route name="taco" path="taco/:name" handler={Taco}/>
-  </Route>
-);
-
-Router.run(routes, function (Handler) {
-  React.render(<Handler/>, document.getElementById('example'));
-});
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <Route path="taco/:name" component={Taco} />
+    </Route>
+  </Router>
+), document.getElementById('example'))

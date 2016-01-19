@@ -3,10 +3,13 @@
     "./index.js"
   ],
   "dependencies": {
-    "react-router": "0.13.1",
-    "react": "0.13.1"
+    "history": "^1.17.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-router": "^2.0.0-rc5"
   },
   "externals": {
-    "react": "React"
+    "react": "React",
+    "react-dom": "ReactDOM"
   }
 }
