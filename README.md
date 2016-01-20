@@ -1,6 +1,6 @@
 # Examples
 
-> All examples changed based on [spm-example](https://github.com/spmjs/examples/tree/spm-webpack)
+> Some examples changed based on [spm-example](https://github.com/spmjs/examples/tree/spm-webpack)
 
 Project examples for `dool` .
 
