@@ -1,10 +1,11 @@
 require.config({
   shim: {
-  	
+
   },
   baseUrl: '/js',
   paths: {
     a: 'a',
-    jquery:'../lib/jquery'
+    b: 'b',
+    jquery: '../lib/jquery'
   }
 });

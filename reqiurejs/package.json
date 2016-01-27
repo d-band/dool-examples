@@ -1,6 +1,5 @@
 {
   "files": [
-    "./index.js",
-    "./index2.js"
+    "./page-*.js"
   ]
 }

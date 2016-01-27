@@ -1,5 +1,5 @@
 define(['jquery'], function($) {
   return function() {
-    console.log('test page A');
+    console.log('test page B');
   }
 });
