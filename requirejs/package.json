@@ -1,5 +1,8 @@
 {
   "files": [
     "./page-*.js"
-  ]
+  ],
+  "externals": {
+    "jquery": "jQuery"
+  }
 }

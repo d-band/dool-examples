@@ -38,6 +38,7 @@ $ dool build
 
 **框架**
 - [应用 React](./react)
+- [应用 React Router](./react-huge-apps)
 
 **Redux**
 - [Redux Async](./redux-async)
@@ -48,6 +49,7 @@ $ dool build
 - [自定义 loader](./custom-loader)
 - [通过环境变量区分开发和线上模式](./define)
 - [对小于 10K 的图片和字体文件做 base64 转换](./base64)
+- [RequireJS](./requirejs)
 - [todo](./todo)
 - [todo with expresso](./todo-with-expresso)
 
