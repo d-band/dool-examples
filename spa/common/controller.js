@@ -1,53 +1,46 @@
 import collect from './collect'
 import login from './login'
-// import router from './router'  //出错
+import router from './router'
 
-	
 function load(pageId) {
-	$('.spa-page').css('z-index',2015);
-	require(['../pages/'+ pageId +'/index' ],function () {
-  	
-  });
+  $('.spa-page').css('z-index', 2015);
+  require(['../pages/' + pageId + '/index'], function() {});
 }
 
 
-function controller (template) {
-	var dom = $("#main-contain"),
-		magicFlowDom = $("#magic-flow"),
-		template = template;
-	init();
+function controller(template) {
+  var dom = $("#main-contain");
+  var magicFlowDom = $("#magic-flow");
+  var template = template;
 
-	function init() {
-		requireJs();
-		collect.pageId = template;  
-	}
+  init();
 
-	function requireJs() {
-		if(isLogin()){
-			if (!collect[template]) {
-				load(template);
-				collect[template] = true;
-			}else{
-				$('.spa-page').css('z-index',2015);
-				let cl = '#'+template;
-				$(cl).css('z-index',2016);
-			}
-		}else{
-			// router.changePage('login');
-		}
-		
-	}
+  function init() {
+    requireJs();
+    collect.pageId = template;
+  }
 
-	function isLogin(){
-		if((login.isLogin())!= true && collect.pageId !== 'login'){
-			return false;
-		}else{
-		 	return true;
-		}
-	}
+  function requireJs() {
+    if (isLogin()) {
+      if (!collect[template]) {
+        load(template);
+        collect[template] = true;
+      } else {
+        $('.spa-page').css('z-index', 2015);
+        $('#' + template).css('z-index', 2016);
+      }
+    } else {
+      router.changePage('login');
+    }
+  }
+
+  function isLogin() {
+    if (!login.isLogin() && collect.pageId !== 'login') {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
+
 module.exports = controller;
-
-
-
-

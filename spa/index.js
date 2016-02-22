@@ -8,9 +8,8 @@ const main = {
   init: function() {
     collect.init();
     router.init();
-	let template = util.getUrlArgs("t") || "home";
+    let template = util.getUrlArgs("t") || "home";
     controller(template);
- 
   }
 };
 

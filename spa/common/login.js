@@ -1,9 +1,7 @@
-const  login ={
-	
-}
+const login = {}
 
-login.isLogin = function () {
-	return true;
+login.isLogin = function() {
+  return true;
 }
 
 module.exports = login;

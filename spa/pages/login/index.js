@@ -11,6 +11,7 @@ const main = {
   bindEvent:function () {
   	$('#test').click(function () {
   		// controller('home');
+      console.log(router); 
       router.changePage('home');
       
   	});
