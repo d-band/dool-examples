@@ -3,8 +3,10 @@ import router from '../../common/router';
 
 
 const main = {
+  render:function  () {
+    $('#container').append(login());
+  },
   init: function() {
-  	$('#container').append(login());
   	this.bindEvent();
   	console.log('login');
   },
@@ -17,6 +19,7 @@ const main = {
   }
 };
 
-$(function() {
-  main.init();
-});
+// $(function() {
+//   main.init();
+// });
+module.exports = main;

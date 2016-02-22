@@ -2,8 +2,10 @@ import home from './mods/home.atpl';
 import router from '../../common/router';
 
 const main = {
+  render:function  () {
+    $('#container').append(home());
+  },
   init: function() {
-  	$('#container').append(home());
   	console.log('home');
   	this.bindEvent()
   },
@@ -14,6 +16,4 @@ const main = {
   }
 };
 
-$(function() {
-  main.init();
-});
+module.exports = main;
