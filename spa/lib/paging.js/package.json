@@ -1,0 +1,41 @@
+{
+  "name": "paging",
+  "version": "0.0.1",
+  "description": "简单自由的分页生成器",
+  "main": "paging.js",
+  "homepage": "http://spmjs.io/docs/paging/latest/",
+  "author": "nimojs <nimo.jser@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimojs/paging"
+  },
+  "keywords": [
+    "paging",
+    "page",
+    "navigation",
+    "pagenav"
+  ],
+  "licenses": "MIT",
+  "spm": {
+    "main": "paging.js",
+    "dependencies": {
+      "mustache": "~2.0.0"
+    },
+    "build": {
+      "umd": "Paging"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build paging.js"
+  },
+  "dependencies": {
+    "mustache": "^2.0.0"
+  }
+}

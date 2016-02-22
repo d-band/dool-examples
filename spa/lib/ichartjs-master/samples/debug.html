@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>test</title>
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="" />
+    <script type="text/javascript" src="../src/ichart.core.js"></script>
+    <script type="text/javascript" src="../src/ichart.element.js"></script>
+    <script type="text/javascript" src="../src/ichart.html.js"></script>
+    <script type="text/javascript" src="../src/ichart.painter.js"></script>
+    <script type="text/javascript" src="../src/ichart.component.js"></script>
+    <script type="text/javascript" src="../src/ichart.legend.js"></script>
+    <script type="text/javascript" src="../src/ichart.label.js"></script>
+    <script type="text/javascript" src="../src/ichart.chart.js"></script>
+    <script type="text/javascript" src="../src/ichart.custom.js"></script>
+    <script type="text/javascript" src="../src/ichart.sector.js"></script>
+    <script type="text/javascript" src="../src/ichart.sector2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.sector3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.rectangle.js"></script>
+    <script type="text/javascript" src="../src/ichart.rectangle2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.rectangle3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.column.js"></script>
+    <script type="text/javascript" src="../src/ichart.column2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.bar.js"></script>
+    <script type="text/javascript" src="../src/ichart.bar2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.barstacked2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.columnmulti2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.columnstacked2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.columnstacked3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.columnmulti3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.barmulti2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.column3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.tip.js"></script>
+    <script type="text/javascript" src="../src/ichart.text.js"></script>
+    <script type="text/javascript" src="../src/ichart.pie.js"></script>
+    <script type="text/javascript" src="../src/ichart.pie2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.donut2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.pie3d.js"></script>
+    <script type="text/javascript" src="../src/ichart.coordinate.js"></script>
+    <script type="text/javascript" src="../src/ichart.crosshair.js"></script>
+    <script type="text/javascript" src="../src/ichart.linesegment.js"></script>
+    <script type="text/javascript" src="../src/ichart.line.js"></script>
+    <script type="text/javascript" src="../src/ichart.linebasic2d.js"></script>
+    <script type="text/javascript" src="../src/ichart.area2d.js"></script>
+    <script type="text/javascript" src="../plugin/ichart.gauge2d.js"></script>
+    <script type="text/javascript" src="../plugin/ichart.slider.js"></script>
+    <style type="text/css">
+        body {
+            text-align: center;
+            background-repeat: repeat;
+            background-color: #0c1b38;
+        }
+        #canvasDiv {
+            margin: 0px auto;
+            text-align: center;
+            color:#0d8ecf;
+        }
+        #ichartjs_result{
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            padding:8px;
+            color:#fefefe;
+            font-size:20px;
+            font-weight:600;
+            background-color:#6d869f;
+            cursor: pointer;
+            text-align:center;
+            border:1px solid #6a869d;
+            -webkit-box-shadow:0px 0px 2px #375073;
+            -moz-box-shadow:0px 0px 2px #375073;
+            box-shadow:0px 0px 2px #375073;
+            -moz-border-radius:10px;
+            -webkit-border-radius:10px;
+            -khtml-border-radius:10px;
+            border-radius:10px
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            var ip=[],t;
+
+            //创建随机长度数据
+            var number =  Math.floor(Math.random()*50)+10;
+
+            //创建x轴标签文本
+            var date = new Date();
+            date.setDate(date.getDate()-number);
+            var labels = [];
+            //创建随机数据
+            for(var i=0;i<number;i++){
+                //t = Math.floor(Math.random()*(200+((i%12)*10)))+10;
+                ip.push(5+10*i);
+
+                date.setDate(date.getDate()+1);
+                labels.push(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+            }
+
+            var data = [
+                {
+                    name : 'IP',
+                    value:ip,
+                    color:'#f68f70',
+                    line_width:2
+                }
+            ];
+
+            var chart = new iChart.LineBasic2D({
+                render : 'canvasDiv',
+                data: data,
+                align:'center',
+                title : 'A网站近5天流量趋势,按每2小时分组统计',
+                subtitle : '平均每个人访问2-3个页面(访问量单位：万)',
+                footnote : '数据来源：模拟数据',
+                width : 800,
+                height : 400,
+                background_color:'#FEFEFE',
+                legend : {
+                    enable : true,
+                    row:1,//设置在一行上显示，与column配合使用
+                    column : 'max',
+                    valign:'top',
+                    sign:'bar',
+                    background_color:null,//设置透明背景
+                    offsetx:-80,//设置x轴偏移，满足位置需要
+                    border : true
+                },
+                tip:{
+                    enable:true,
+                    shadow:true
+                },
+                crosshair:{
+                    enable:true,
+                    line_color:'#62bce9'//十字线的颜色
+                },
+                sub_option : {
+                    label:false,
+                    point_size:10
+                },
+                coordinate:{
+                    width:640,
+                    height:240,
+                    axis:{
+                        color:'#dcdcdc',
+                        width:1
+                    },
+                    yAxis:{
+                        labels:[0,10,50,200,500],
+                        scale_size:2,
+                        scale_color:'#9f9f9f'
+                    },
+                    xAxis:{
+                        labels:labels,
+                        step:6
+
+                    }
+                }
+            });
+
+            //开始画图
+            chart.draw();
+        });
+
+    </script>
+</head>
+<body>
+<div id='canvasDiv' ></div>
+<br/>
+<div id='ichartjs_result'></div>
+</body>
+</html>
