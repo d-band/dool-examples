@@ -1,7 +1,6 @@
 import controller from './controller'
 import util from './util'
 
-
 const router = {
   init: function() {
     window.onpopstate = function(event) {

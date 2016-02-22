@@ -2,40 +2,48 @@ import collect from './collect'
 import login from './login'
 import router from './router'
 
-function load(pageId) {
+function load(pageId, isFirst) {
   $('.spa-page').css('z-index', 2015);
-  require(['../pages/' + pageId + '/index'], function() {});
+  if (isFirst) {
+    require(['../pages/' + pageId + '/index'], function(mod) {
+      mod.render();
+      mod.init();
+    });
+  } else {
+    require(['../pages/' + pageId + '/index'], function(mod) {
+      $('.spa-page').css('z-index', 2015);
+      let cl = '#' + pageId;
+      $(cl).css('z-index', 2016);
+      mod.init();
+    });
+  }
+
 }
 
 
-function controller(template) {
-  var dom = $("#main-contain");
-  var magicFlowDom = $("#magic-flow");
-  var template = template;
-
+function controller(pageId) {
+  var pageId = pageId;
   init();
 
   function init() {
     requireJs();
-    collect.pageId = template;
+    collect.pageId = pageId;
   }
 
   function requireJs() {
-    if (isLogin()) {
-      if (!collect[template]) {
-        load(template);
-        collect[template] = true;
-      } else {
-        $('.spa-page').css('z-index', 2015);
-        $('#' + template).css('z-index', 2016);
-      }
+
+    if (!collect[pageId]) {
+      load(pageId, true);
+      collect[pageId] = true;
     } else {
-      router.changePage('login');
+      load(pageId, false);
     }
+
+
   }
 
   function isLogin() {
-    if (!login.isLogin() && collect.pageId !== 'login') {
+    if ((login.isLogin()) != true && collect.pageId !== 'login') {
       return false;
     } else {
       return true;
