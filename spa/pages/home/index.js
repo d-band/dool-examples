@@ -2,17 +2,17 @@ import home from './mods/home.atpl';
 import router from '../../common/router';
 
 const main = {
-  render:function  () {
+  render: function() {
     $('#container').append(home());
   },
   init: function() {
-  	console.log('home');
-  	this.bindEvent()
+    console.log('home');
+    this.bindEvent();
   },
-  bindEvent:function () {
-  	$('#test2').click(function () {
+  bindEvent: function() {
+    $('#test2').off('click').on('click', function() {
       router.changePage('login');
-  	});
+    });
   }
 };
 

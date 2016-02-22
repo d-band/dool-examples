@@ -3,24 +3,18 @@ import router from '../../common/router';
 
 
 const main = {
-  render:function  () {
+  render: function() {
     $('#container').append(login());
   },
   init: function() {
-  	this.bindEvent();
-  	console.log('login');
+    this.bindEvent();
+    console.log('login');
   },
-  bindEvent:function () {
-  	$('#test').click(function () {
-  		// controller('home');
-      console.log(router); 
+  bindEvent: function() {
+    $('#test').off('click').on('click', function() {
       router.changePage('home');
-      
-  	});
+    });
   }
 };
 
-// $(function() {
-//   main.init();
-// });
 module.exports = main;

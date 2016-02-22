@@ -11,7 +11,6 @@ const router = {
   changePage: function(pageId) {
     var url = '?t=' + pageId;
     console.log(url);
-    console.log(controller);
     history.pushState('', '', url);
     controller(pageId);
   }
