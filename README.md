@@ -35,6 +35,8 @@ $ dool build
 - [公用文件](./common-file)
 - [公用依赖](./common-pkg)
 - [按需加载](./load-on-demand)
+- [按需加载-自定义模块名](./named-chunk)
+- [并行（parallel）编译-利用多核优势](./parallel)
 
 **框架**
 - [应用 React](./react)
