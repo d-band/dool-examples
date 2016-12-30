@@ -1,5 +1,5 @@
 module.exports = function(cfg) {
-  cfg.module.loaders.push({
+  cfg.module.rules.push({
     test: /\.coffee$/,
     loader: 'coffee-loader'
   });

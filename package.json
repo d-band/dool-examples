@@ -21,6 +21,6 @@
   "homepage": "https://github.com/d-band/dool-examples#readme",
   "devDependencies": {
     "babel-cli": "^6.4.5",
-    "dool": "latest"
+    "dool-build": "beta"
   }
 }
