@@ -41,6 +41,7 @@ $ dool build
 **框架**
 - [应用 React](./react)
 - [应用 React Router](./react-huge-apps)
+- [应用 Vue ElementUI](https://github.com/d-band/vue-boilerplate)
 
 **Redux**
 - [Redux Async](./redux-async)
