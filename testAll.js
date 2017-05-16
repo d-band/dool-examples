@@ -10,8 +10,8 @@ const exampleDirs = readdirSync(__dirname).filter((file) => {
 
 // Ordering is important here. `npm install` must come first.
 const cmdArgs = [
-  { cmd: 'npm', args: [ 'install', '-s' ] },
-  { cmd: '../node_modules/.bin/dool-build', args: [] }
+  { cmd: 'npm', args: ['install', '-s'] },
+  { cmd: '../node_modules/.bin/dool', args: ['build'] }
 ];
 
 for (let dir of exampleDirs) {
