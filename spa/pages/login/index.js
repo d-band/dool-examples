@@ -1,7 +1,6 @@
 import login from './mods/login.atpl';
 import router from '../../common/router';
 
-
 const main = {
   render: function() {
     $('#container').append(login());
@@ -17,4 +16,4 @@ const main = {
   }
 };
 
-module.exports = main;
+export default main;

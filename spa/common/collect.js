@@ -9,4 +9,4 @@ const collect = {
 collect.init = function() {
   this.pageContainer = $('#main-contain');
 }
-module.exports = collect;
+export default collect;

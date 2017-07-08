@@ -4,4 +4,4 @@ login.isLogin = function() {
   return true;
 }
 
-module.exports = login;
+export default login;

@@ -6,22 +6,22 @@ function load(pageId, isFirst) {
   $('.spa-page').css('z-index', 2015);
   if (isFirst) {
     require(['../pages/' + pageId + '/index'], function(mod) {
-      mod.render();
-      mod.init();
+      mod.default.render();
+      mod.default.init();
     });
   } else {
     require(['../pages/' + pageId + '/index'], function(mod) {
       $('.spa-page').css('z-index', 2015);
       let cl = '#' + pageId;
       $(cl).css('z-index', 2016);
-      mod.init();
+      mod.default.init();
     });
   }
 
 }
 
 
-function controller(pageId) {
+export default function controller(pageId) {
   var pageId = pageId;
   init();
 
@@ -50,5 +50,3 @@ function controller(pageId) {
     }
   }
 }
-
-module.exports = controller;
