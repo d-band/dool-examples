@@ -3,3 +3,4 @@ node_modules
 spm_modules
 dist
 .idea
+package-lock.json

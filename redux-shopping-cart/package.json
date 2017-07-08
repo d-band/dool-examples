@@ -2,7 +2,9 @@
   "name": "redux-shopping-cart",
   "version": "0.0.1",
   "description": "Redux shopping cart example",
-  "files": ["./index.js"],
+  "files": [
+    "./index.js"
+  ],
   "scripts": {
     "build": "dool build",
     "start": "dool server"
