@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0"
+  }
+}

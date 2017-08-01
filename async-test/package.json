@@ -1,8 +1,0 @@
-{
-  "files": [
-    "./index.js"
-  ],
-  "dependencies": {
-    "scriptjs": "^2.5.8"
-  }
-}

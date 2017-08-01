@@ -1,0 +1,4 @@
+{
+  files: ['index.js'],
+  babelPlugins: ['transform-runtime']
+}

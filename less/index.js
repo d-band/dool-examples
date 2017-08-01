@@ -1,3 +1,6 @@
+const list = document
+  .getElementById('header')
+  .classList;
 
-require('./index.less');
-
+list.add('animated')
+list.add('swing');

@@ -1,0 +1,10 @@
+{
+  files: ['page-*.js'],
+  entry: {
+    vendor: ['jquery']
+  },
+  commons: {
+    names: ['common', 'vendor'],
+    minChunks: 2
+  }
+}

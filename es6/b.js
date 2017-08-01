@@ -1,3 +1,2 @@
-
-var B = 'b';
+const B = 'b';
 export default B;

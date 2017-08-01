@@ -1,84 +1,84 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { browserHistory, Router, Route, Link } from 'react-router'
-import './index.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { render } from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import './index.less';
 
-const App = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
+let i = 0;
+const uuid = () => ++i;
 
-  getInitialState() {
-    return {
-      tacos: [
-        { name: 'duck confit' },
-        { name: 'carne asada' },
-        { name: 'shrimp' }
-      ]
-    }
-  },
+const Taco = ({ taco, onRemove }) => (
+  <div className="Taco">
+    <h1>{taco.name}</h1>
+    <button className="btn btn-default" onClick={() => onRemove(taco.id)}>remove</button>
+  </div>
+);
 
+const TacoRoute = ({ tacos, onRemove }) => (
+  <Route
+    path="/taco/:id"
+    render={({ match }) => {
+      const id = Number(match.params.id);
+      const taco = tacos.find(v => v.id === id);
+      return taco ? <Taco taco={taco} onRemove={onRemove} /> : null;
+    }}
+  />
+);
+
+class App extends Component {
+  static propTypes = {
+    history: PropTypes.object
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      tacos: []
+    };
+  }
   addTaco() {
-    let name = prompt('taco name?')
-
+    const name = prompt('taco name?');
+    const { tacos } = this.state;
     this.setState({
-      tacos: this.state.tacos.concat({ name })
-    })
-  },
-
-  handleRemoveTaco(removedTaco) {
+      tacos: [...tacos, { id: uuid(), name }]
+    });
+  }
+  removeTaco(id) {
+    const { tacos } = this.state;
+    const { history } = this.props;
     this.setState({
-      tacos: this.state.tacos.filter(function (taco) {
-        return taco.name != removedTaco
-      })
-    })
-
-    this.context.router.push('/')
-  },
-
+      tacos: tacos.filter(v => v.id !== id)
+    });
+    history.push('/');
+  }
   render() {
-    let links = this.state.tacos.map(function (taco, i) {
-      return (
-        <li key={i}>
-          <Link to={`/taco/${taco.name}`}>{taco.name}</Link>
-        </li>
-      )
-    })
+    const { tacos } = this.state;
+    const links = tacos.map(taco => (
+      <li key={taco.id}>
+        <Link to={`/taco/${taco.id}`}>{taco.name}</Link>
+      </li>
+    ));
     return (
-      <div className="App">
-        <button onClick={this.addTaco}>Add Taco</button>
-        <ul className="Master">
-          {links}
-        </ul>
-        <div className="Detail">
-          {this.props.children && React.cloneElement(this.props.children, {
-            onRemoveTaco: this.handleRemoveTaco
-          })}
+      <div className="container">
+        <nav className="nav">
+          <button className="btn btn-default" onClick={() => this.addTaco()}>Add Taco</button>
+          <ul className="Master">
+            {links}
+          </ul>
+        </nav>
+        <div className="main-wrap">
+          <TacoRoute tacos={tacos} onRemove={id => this.removeTaco(id)} />
         </div>
       </div>
     )
   }
-})
-
-const Taco = React.createClass({
-  remove() {
-    this.props.onRemoveTaco(this.props.params.name)
-  },
-
-  render() {
-    return (
-      <div className="Taco">
-        <h1>{this.props.params.name}</h1>
-        <button onClick={this.remove}>remove</button>
-      </div>
-    )
-  }
-})
+}
 
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <Route path="taco/:name" component={Taco} />
-    </Route>
+  <Router>
+    <Route path="/" component={App} />
   </Router>
-), document.getElementById('example'))
+), document.getElementById('example'));

@@ -1,7 +1,7 @@
-module.exports = function(cfg) {
-  cfg.module.rules.push({
+module.exports = function(config) {
+  config.module.rules.push({
     test: /\.(js|css)$/,
     loader: './loader'
   });
-  return cfg;
+  return config;
 }

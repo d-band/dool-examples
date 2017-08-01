@@ -1,8 +1,5 @@
 {
-  "files": [
-    "./index.js"
-  ],
   "dependencies": {
-    "normalize.css": "3.0.3"
+    "normalize.css": "^7.0.0"
   }
 }

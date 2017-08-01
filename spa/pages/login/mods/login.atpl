@@ -1,5 +1,0 @@
-<div class="spa-page spa-page-login" id = "login" data-id="0" data-spa:init="true" style="z-index: 2016;">
-	<div class="spa-page-body" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
-		<p id="test">login</p>
- 	</div> 
-</div> 

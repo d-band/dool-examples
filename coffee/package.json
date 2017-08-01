@@ -1,9 +1,6 @@
 {
-  "files": [
-    "./index.coffee"
-  ],
   "dependencies": {
-    "coffee-loader": "~0.7.2",
-    "coffee-script": "^1.10.0"
+    "coffee-loader": "^0.7.3",
+    "coffee-script": "^1.12.7"
   }
 }

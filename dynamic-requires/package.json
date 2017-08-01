@@ -1,8 +1,0 @@
-{
-  "files": [
-    "./index.js"
-  ],
-  "dependencies": {
-    "jquery": "^2.2.0"
-  }
-}

@@ -1,3 +1,3 @@
-require('./a.css');
+require('./index.css');
 
 document.getElementById('content').innerHTML = 'foo';

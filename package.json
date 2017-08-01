@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "dool examples",
   "scripts": {
-    "test": "babel-node --presets env testAll.js"
+    "test": "node testAll.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/d-band/dool-examples#readme",
   "devDependencies": {
-    "babel-cli": "^6.4.5",
     "dool": "latest"
   }
 }
