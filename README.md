@@ -46,6 +46,7 @@ $ dool build
 - [Redux Cart](./redux-shopping-cart)
 
 **其他**
+- [支持 CSS Modules](./css-modules)
 - [多页应用](./multi-page)
 - [自定义 loader](./custom-loader)
 - [通过环境变量区分开发和线上模式](./define)
