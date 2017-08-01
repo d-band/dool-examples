@@ -1,0 +1,9 @@
+{
+  files: [
+    'src/index.js',
+    'src/index.less',
+    'src/pages/*/index.js',
+    'src/pages/*/index.less'
+  ],
+  filesBase: 'src'
+}

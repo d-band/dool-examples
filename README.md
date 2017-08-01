@@ -34,7 +34,7 @@ $ dool build
 - [公用依赖-Vendor](./common-vendor)
 - [按需加载](./lazy-load)
 - [按需加载-自定义模块名](./named-chunks)
-- [并行（parallel）编译-利用多核优势](./multipage)
+- [并行（parallel）编译-利用多核优势](./multi-page)
 
 **框架**
 - [应用 React](./react)
@@ -46,7 +46,7 @@ $ dool build
 - [Redux Cart](./redux-shopping-cart)
 
 **其他**
-- [多页应用](./multipage)
+- [多页应用](./multi-page)
 - [自定义 loader](./custom-loader)
 - [通过环境变量区分开发和线上模式](./define)
 - [对小于 10K 的图片和字体文件做 base64 转换](./base64)
