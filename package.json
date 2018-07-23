@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/d-band/dool-examples#readme",
   "devDependencies": {
-    "dool": "^4.0.1"
+    "dool": "^4.0.2"
   }
 }
