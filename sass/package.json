@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3"
   }
