@@ -1,0 +1,13 @@
+$colors: (
+  "success": green,
+  "error": red,
+  "warning": yellow
+);
+
+@each $color, $value in $colors {
+  .bg-#{$color} {
+    color: #000;
+    padding: 10px;
+    background-color: $value;
+  }
+}

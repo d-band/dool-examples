@@ -27,6 +27,7 @@ $ dool build
 **语言类**
 - [应用 Coffee](./coffee)
 - [应用 Less-默认支持](./less)
+- [应用 Sass](./sass)
 - [应用 ES6-默认支持](./es6)
 
 **性能**
