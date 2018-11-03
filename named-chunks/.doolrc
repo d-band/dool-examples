@@ -1,4 +1,4 @@
 {
   files: ['index.js'],
-  babelPlugins: ['transform-runtime']
+  babelPlugins: ['@babel/plugin-transform-runtime']
 }
