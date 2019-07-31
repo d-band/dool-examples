@@ -1,7 +1,7 @@
 {
   files: ['index.js'],
-  // CSSModules 可以为 Boolean 或 Array，默认为 false
+  // cssModules 可以为 Boolean 或 Array，默认为 false
   // - true: 等价于 ['src']
   // - Array: 开启 Modules 的目录列表
-  CSSModules: ['index.less']
+  cssModules: ['index.less']
 }
